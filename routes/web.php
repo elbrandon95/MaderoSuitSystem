@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('usuario/{nickname?}', 'UsuarioController@index');
+Route::get('/','IndexController@index');
