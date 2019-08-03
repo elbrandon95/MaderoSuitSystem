@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\admin\Usuario;
 
 class UsuarioController extends Controller
 {
@@ -11,10 +13,10 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($nickname = false)
+    public function index()
     {
-        //return view('usuario');
-        return view('usuario',compact('nickname'));
+        $usuarios = Usuario::orderBy('idUsuario')->get();
+        return view('admin.usuario.index',compact('usuarios'));
     }
 
     /**
@@ -24,7 +26,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.usuario.create');
     }
 
     /**

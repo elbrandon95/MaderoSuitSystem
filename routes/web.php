@@ -12,3 +12,8 @@
 */
 
 Route::get('/','IndexController@index');
+Route::get('/admin/usuario','Admin\UsuarioController@index')->name('usuario');
+Route::get('/admin/usuario/create','Admin\UsuarioController@create')->name('usuarioCreate');
+Route::get('/admin/menu','Admin\MenuController@index')->name('menu');
+Route::get('/admin/menu/create','Admin\MenuController@create')->name('menuCreate');
+Route::post('/admin/menu','Admin\MenuController@store')->name('menuStore');
