@@ -16,7 +16,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = Menu::getMenu();
+        return view('admin.menu.index', compact('menus'));
     }
 
     /**
@@ -60,7 +61,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Menu::findOrFail($id);
+        return view('admin.menu.edit', compact('data'));
     }
 
     /**
@@ -72,7 +74,8 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Menu::findOrFail($id)->update($request->all());
+        return redirect('admin/menu')->with('message', 'Menú actualizado con exito');
     }
 
     /**
@@ -83,6 +86,20 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Menu::destroy($id);
+        return redirect('admin/menu')->with('mensaje', 'Menú eliminado con exito');
+            
+    }
+
+    public function saveOrden(Request $request)
+    {
+        if($request->ajax()){
+            $menu = new Menu;
+            $menu->saveOrden($request->menu);
+            return response()->json(['response'=>'ok']);
+        }
+        else {
+            abort(404);
+        }
     }
 }

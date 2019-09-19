@@ -10,14 +10,16 @@
         <link rel="stylesheet" href="{{asset("assets/$theme/bower_components/Ionicons/css/ionicons.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/AdminLTE.min.css")}}">
         <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/skins/_all-skins.min.css")}}">
+        <link rel="stylesheet" href="{{asset("assets/js/toastr/toastr.min.css")}}"></script>
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
         
         @yield("styles")
 
+        <link rel="stylesheet" href="{{asset("assets/css/custom.css")}}">
+        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     </head>
@@ -37,10 +39,17 @@
             @include("theme/$theme/footer")
         </div>
         <script src="{{asset("assets/$theme/bower_components/jquery/dist/jquery.min.js")}}"></script>
+        <script src="{{asset("assets/js/toastr/toastr.min.js")}}"></script>
+        <script src="{{asset("assets/js/sweetalert/sweetalert.min.js")}}"></script>
         <script src="{{asset("assets/$theme/bower_components/bootstrap/dist/js/bootstrap.min.js")}}"></script>
         <script src="{{asset("assets/$theme/bower_components/jquery-slimscroll/jquery.slimscroll.min.js")}}"></script>
         <script src="{{asset("assets/$theme/bower_components/fastclick/lib/fastclick.js")}}"></script>
         <script src="{{asset("assets/$theme/dist/js/adminlte.min.js")}}"></script>
+        <script src="{{asset("assets/js/jquery-validate/jquery.validate.min.js")}}"></script>
+        <script src="{{asset("assets/js/jquery-validate/localization/messages_es.min.js")}}"></script>
+        <script src="{{asset("assets/js/script.js")}}"></script>
+        <script src="{{asset("assets/js/functions.js")}}"></script>
         @yield("scripts")
+        @yield("scriptPlugins")
     </body>
 </html>

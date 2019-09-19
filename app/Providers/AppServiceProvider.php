@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\admin\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('theme', 'lte');
+        view()->composer('theme.lte.asside', function ($view) {
+            $menus = Menu::getMenu(true);
+            $view->with('menusComposer',$menus);
+        });
+        view()->share('theme', 'lte');
     }
 }

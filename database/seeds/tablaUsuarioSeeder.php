@@ -27,8 +27,15 @@ class tablaUsuarioSeeder extends Seeder
                 'rol' => $value
             ]);
         }*/
-        factory(Usuario::class)->times(10)->create();
-        
+
+        DB::table('usuario')->insert([
+            'usuario' => 'admin',
+            'nombre' => 'Brandon',
+            'apellidoPaterno' => 'Espinosa',
+            'apellidoMaterno' => 'Ramirez',
+            'password' => bcrypt('root')
+        ]);
+
         
     }
 }
